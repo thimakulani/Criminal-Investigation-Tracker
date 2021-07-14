@@ -64,8 +64,13 @@
     <Compile Include="Activities\HomeActivity.cs" />
     <Compile Include="Activities\LandingPage.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
+    <Compile Include="Dialogs\AddCaseDlgFragment.cs" />
+    <Compile Include="Dialogs\AddEvidenceDlgFragment.cs" />
+    <Compile Include="Dialogs\AddOfficerDlgFragment.cs" />
+    <Compile Include="Dialogs\AddSuspectDlgFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\LoginFragment.cs" />
+    <Compile Include="Fragments\PredictSuspectFragment.cs" />
     <Compile Include="Fragments\ProfileFragment.cs" />
     <Compile Include="Fragments\SignupFragment.cs" />
     <Compile Include="Models\AdminModel.cs" />
@@ -109,7 +114,6 @@
   <ItemGroup>
     <Folder Include="Adapters\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Dialogs\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Karamunting.Android.IsmaelDiVita.ChipNavigationBar">
@@ -145,6 +149,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\iconfinder_216240_home_icon_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\officer_nav_menu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\home_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
