@@ -25,5 +25,6 @@ namespace CIT.Dialogs
             base.OnStart();
             Dialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
         }
+        
     }
 }

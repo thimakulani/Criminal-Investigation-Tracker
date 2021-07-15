@@ -23,13 +23,19 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/row_officer_name"
-                android:layout_weight="50"
+                android:layout_weight="48"
                 />
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/row_officer_surname"
-                android:layout_weight="50"
+                android:layout_weight="48"
+                />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                 android:layout_weight="2"
+                android:src="@drawable/ic_edit_black_18dp"
                 />
         </LinearLayout>
     </LinearLayout>

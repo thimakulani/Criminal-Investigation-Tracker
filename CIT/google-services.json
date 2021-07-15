@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "169840156925",
+    "project_id": "criminal-investigator-tracker",
+    "storage_bucket": "criminal-investigator-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169840156925:android:581b0ccf2b2fe97828de94",
+        "android_client_info": {
+          "package_name": "com.sigauque.technologies.cit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169840156925-mv93nt2mtrcdlb9t122193vgibdakdlm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sigauque.technologies.cit",
+            "certificate_hash": "240580d78c2e0aae66cac134682738828559038b"
+          }
+        },
+        {
+          "client_id": "169840156925-t22mfrku6t7c8cdko10v0mnvctomvlb8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdbIHDpiiHeUP60Txg3csTZHBXTnEvLkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169840156925-t22mfrku6t7c8cdko10v0mnvctomvlb8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
