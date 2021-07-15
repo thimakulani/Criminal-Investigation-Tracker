@@ -19,7 +19,6 @@ namespace CIT.Models
         public string Address { get; set; }
         public string Relation { get; set; }
         public string Date { get; set; }
-        public string Rank { get; set; }
         public string Notice { get; set; }
         public string CaseId { get; set; }
 

@@ -20,5 +20,10 @@ namespace CIT.Dialogs
 
             return base.OnCreateView(inflater, container, savedInstanceState);
         }
+        public override void OnStart()
+        {
+            base.OnStart();
+            Dialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+        }
     }
 }

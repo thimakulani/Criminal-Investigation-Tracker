@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_margin="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/input_name" 
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_margin="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+            android:id="@+id/input_lastname"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_margin="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/input_mobile"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>     
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_margin="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/input_email_address"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_margin="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/input_address"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+    >
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:id="@+id/btn_attachement"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            
+        />
+
+    </RelativeLayout>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/btn_add_officer"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+    />
+   
+</LinearLayout>
