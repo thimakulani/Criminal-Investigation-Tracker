@@ -136,6 +136,7 @@ namespace CIT.Dialogs
                         ImageService
                         .Instance
                         .LoadUrl(officer.ImageUrl)
+                        .Retry(3, 200)
                         .DownSampleInDip(150, 150)
                         .IntoAsync(officer_profile_img);
                     }

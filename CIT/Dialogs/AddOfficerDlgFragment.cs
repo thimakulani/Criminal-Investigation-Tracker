@@ -1,20 +1,26 @@
 ﻿using Android.Content;
+using Android.Gms.Extensions;
+using Android.Gms.Tasks;
 using Android.OS;
 using Android.Views;
+using Android.Widget;
 using AndroidHUD;
 using AndroidX.Fragment.App;
 using CIT.Models;
+using Firebase.Storage;
 using FirebaseAdmin.Auth;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using ID.IonBit.IonAlertLib;
 using Plugin.CloudFirestore;
+using Plugin.FirebaseStorage;
+using Plugin.Media;
 using System;
 using System.Collections.Generic;
 
 namespace CIT.Dialogs
 {
-    public class AddOfficerDlgFragment : DialogFragment
+    public class AddOfficerDlgFragment : DialogFragment, IOnSuccessListener, IOnFailureListener
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -37,7 +43,6 @@ namespace CIT.Dialogs
         private TextInputEditText Input_surname;
         private TextInputEditText Input_phone;
         private TextInputEditText Input_email;
-        private TextInputEditText Input_address;
         private MaterialButton btn_attachement;
         private MaterialButton btn_add_officer;
 
@@ -46,7 +51,6 @@ namespace CIT.Dialogs
             Input_name = view.FindViewById<TextInputEditText>(Resource.Id.input_name);
             Input_phone = view.FindViewById<TextInputEditText>(Resource.Id.input_mobile);
             Input_surname = view.FindViewById<TextInputEditText>(Resource.Id.input_lastname);
-            Input_address = view.FindViewById<TextInputEditText>(Resource.Id.input_address);
             Input_email = view.FindViewById<TextInputEditText>(Resource.Id.input_email_address);
             btn_add_officer = view.FindViewById<MaterialButton>(Resource.Id.btn_add_officer);
             btn_attachement = view.FindViewById<MaterialButton>(Resource.Id.btn_attachement);
@@ -63,7 +67,7 @@ namespace CIT.Dialogs
                 { "Surname", Input_surname.Text.Trim() },
                 { "ImageUrl", null },
                 { "Email", Input_email.Text.Trim() },
-                { "Address", Input_address.Text.Trim() },
+              
                 { "Role", "O" },
                 { "Phone", Input_name.Text.Trim() }
             };
@@ -88,6 +92,20 @@ namespace CIT.Dialogs
                     .Collection("OFFICERS")
                     .Document(results.Uid)
                     .SetAsync(keyValues);
+                if(imageArray != null)
+                {
+                    StorageReference storage_ref = FirebaseStorage
+                        .Instance
+                        .GetReference("PROFILE");
+
+                    await storage_ref.PutBytes(imageArray);
+                    await CrossCloudFirestore.Current
+                        .Instance
+                        .Collection("OFFICERS")
+                        .Document(results.Uid)
+                        .UpdateAsync("ImageUrl", storage_ref.GetDownloadUrl().ToString());
+
+                }
                 AndHUD.Shared.ShowSuccess(context, "Account successfully created", MaskType.Clear, TimeSpan.FromSeconds(2));
             }
             catch (Exception ex)
@@ -99,12 +117,57 @@ namespace CIT.Dialogs
 
         private void Btn_attachement_Click(object sender, EventArgs e)
         {
-            
+            ChosePicture();
+        }
+        private byte[] imageArray;
+        StorageReference storageRef;
+        private async void ChosePicture()
+        {
+            await CrossMedia.Current.Initialize();
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                Toast.MakeText(context, "Upload not supported on this device", ToastLength.Short).Show();
+                return;
+            }
+            try
+            {
+                var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+                {
+                    PhotoSize = Plugin.Media.Abstractions.PhotoSize.Full,
+                    CompressionQuality = 40,
+
+                });
+                imageArray = System.IO.File.ReadAllBytes(file.Path);
+
+                //if (imageArray != null)
+                //{
+                //    storageRef = FirebaseStorage.Instance.GetReference("Profile");
+                //    storageRef.PutBytes(imageArray)
+                //        .AddOnSuccessListener(this)
+                //        .AddOnFailureListener(this);
+                //}
+
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
         public override void OnStart()
         {
             base.OnStart();
             Dialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+        }
+
+        public void OnSuccess(Java.Lang.Object result)
+        {
+            
+        }
+
+        public void OnFailure(Java.Lang.Exception e)
+        {
+            
         }
     }
 }
