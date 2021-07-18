@@ -19,5 +19,6 @@ namespace CIT.Models
         public string OfficerName { get; set; }
         public string Note { get; set; } 
         public string Evidance { get; set; }
+        public string Status { get; set; }
     }
 }

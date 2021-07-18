@@ -34,7 +34,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/row_officer_status"
+                android:id="@+id/row_case_status"
                 android:layout_weight="33"
                 />
         </LinearLayout>

@@ -1,7 +1,10 @@
 ﻿using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using CIT.Models;
+using Google.Android.Material.TextView;
 using System;
+using System.Collections.Generic;
 
 namespace CIT.Adapters
 {
@@ -9,9 +12,9 @@ namespace CIT.Adapters
     {
         public event EventHandler<OfficersAdapterClickEventArgs> ItemClick;
         public event EventHandler<OfficersAdapterClickEventArgs> ItemLongClick;
-        string[] items;
+        List<OfficerModel> items = new List<OfficerModel>();
 
-        public OfficersAdapter(string[] data)
+        public OfficersAdapter(List<OfficerModel> data)
         {
             items = data;
         }
@@ -33,14 +36,13 @@ namespace CIT.Adapters
         // Replace the contents of a view (invoked by the layout manager)
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var item = items[position];
-
             // Replace the contents of the view with that element
             var holder = viewHolder as OfficersAdapterViewHolder;
-            //holder.TextView.Text = items[position];
+            holder.row_officer_name.Text = items[position].Name;
+            holder.row_officer_surname.Text = items[position].Surname;
         }
 
-        public override int ItemCount => items.Length;
+        public override int ItemCount => items.Count;
 
         void OnClick(OfficersAdapterClickEventArgs args) => ItemClick?.Invoke(this, args);
         void OnLongClick(OfficersAdapterClickEventArgs args) => ItemLongClick?.Invoke(this, args);
@@ -49,13 +51,17 @@ namespace CIT.Adapters
 
     public class OfficersAdapterViewHolder : RecyclerView.ViewHolder
     {
-        //public TextView TextView { get; set; }
+        public MaterialTextView row_officer_name { get; set; }
+        public MaterialTextView row_officer_surname { get; set; }
 
 
         public OfficersAdapterViewHolder(View itemView, Action<OfficersAdapterClickEventArgs> clickListener,
                             Action<OfficersAdapterClickEventArgs> longClickListener) : base(itemView)
         {
             //TextView = v;
+            row_officer_name = itemView.FindViewById<MaterialTextView>(Resource.Id.row_officer_name);
+            row_officer_surname = itemView.FindViewById<MaterialTextView>(Resource.Id.row_officer_surname);
+
             itemView.Click += (sender, e) => clickListener(new OfficersAdapterClickEventArgs { View = itemView, Position = AbsoluteAdapterPosition });
             itemView.LongClick += (sender, e) => longClickListener(new OfficersAdapterClickEventArgs { View = itemView, Position = AbsoluteAdapterPosition });
         }

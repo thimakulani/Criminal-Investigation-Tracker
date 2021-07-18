@@ -4,17 +4,17 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/iconfinder_216240_home_icon_512px"
-        android:title="CASE"
+        android:icon="@drawable/ic_dashboard_black_18dp"
+        android:title="CASES"
         app:cnb_iconColor="#0096fa"/>
     <item
         android:id="@+id/nav_add_officer"
-        android:icon="@drawable/iconfinder_216240_home_icon_512px"
+        android:icon="@drawable/ic_account_circle_black_18dp"
         android:title="OFFICERS"
         app:cnb_iconColor="#0096fa"/>
     <item
         android:id="@+id/nav_predict_results"
-        android:icon="@drawable/iconfinder_216240_home_icon_512px"
+        android:icon="@drawable/ic_assignment_black_18dp"
         android:title="PREDICT RESULTS"
         app:cnb_iconColor="#0096fa" />
     <item

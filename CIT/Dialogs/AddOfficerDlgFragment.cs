@@ -28,7 +28,7 @@ namespace CIT.Dialogs
             // Use this to return your custom view for this Fragment
             base.OnCreateView(inflater, container, savedInstanceState);
             View view = inflater.Inflate(Resource.Layout.add_officer_fragment, container, false);
-            ConnectViews(View);
+            ConnectViews(view);
             context = view.Context;
             return view;
         }

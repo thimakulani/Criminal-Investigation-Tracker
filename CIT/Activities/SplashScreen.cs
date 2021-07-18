@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Firebase.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace CIT.Activities
             });
             startWork.ContinueWith(t =>
             {
-                string user = "hi";//FirebaseAuth.Instance.CurrentUser;
+                var user = FirebaseAuth.Instance.CurrentUser;
                 if (user != null)
                 {
                     Intent intent = new Intent(Application.Context, typeof(HomeActivity));
@@ -35,7 +36,7 @@ namespace CIT.Activities
                 }
                 else
                 {
-                    Intent intent = new Intent(Application.Context, typeof(LandingPage));
+                    Intent intent = new Intent(Application.Context, typeof(LoginActivity));
                     StartActivity(intent);
                    // OverridePendingTransition(Resource.Animation.Side_in_right, Resource.Animation.Side_out_left);
                     Finish();

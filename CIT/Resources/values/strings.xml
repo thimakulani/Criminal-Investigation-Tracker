@@ -1,4 +1,36 @@
 <resources>
     <string name="app_name">CIT</string>
-    <string name="action_settings">Settings</string>
+    <string name="txt_add_case">ADD CASE</string>
+    <string name="txt_add_officer">ADD OFFICER</string>
+    <string name="txt_create_account">CREATE ACCOUNT</string>
+    <string name="txt_assign">ASSIGN OFFICER</string>
+    <string name="txt_new_case">NEW CASE</string>
+
+
+    <string name="txt_case_name">CASE NAME</string>
+    <string name="txt_select_officer">ASSIGN OFFICER</string>
+    <string name="txt_case_note">CASE NOTE</string>
+    <string name="txt_case_evidance">EVIDANCE</string>
+
+
+    <string name="txt_officer_name">OFFICER NAME</string>
+    <string name="txt_officer_last_name">OFFICER LAST NAME</string>
+    <string name="txt_officer_email">OFFICER EMAIL</string>
+    <string name="txt_officer_phone">OFFICER PHONE NUMBER</string>
+    <string name="txt_officer_img">SELECT IMAGE</string>
+
+    <string name="txt_suspect_name">SUSPECT NAME</string>
+    <string name="txt_suspect_lastname">SUSPECT LAST NAME</string>
+    <string name="txt_suspect_phone_number">SUSPECT PHONE</string>
+    <string name="txt_suspect_relation">RELATION</string>
+    <string name="txt_suspect_note">NOTE</string>
+    
+    
+    <string name="txt_email">EMAIL ADDRESS</string>
+    <string name="txt_password">PASSWORD</string>
+    <string name="txt_login">LOGIN</string>
+    <string name="txt_forgot_password">FORGOT PASSWORD?</string>
+    
+    
+
 </resources>
