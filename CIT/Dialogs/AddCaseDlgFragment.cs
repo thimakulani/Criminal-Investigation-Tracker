@@ -73,7 +73,8 @@ namespace CIT.Dialogs
                 { "Note", input_case_note.Text },
                 { "Evidence", null },
                 { "Suspect", null },
-                { "Status", "P" }
+                { "Status", "P" },
+                { "TimeStamp", FieldValue.ServerTimestamp }
             };
 
             await CrossCloudFirestore

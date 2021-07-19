@@ -98,7 +98,7 @@ namespace CIT.Dialogs
                         .Instance
                         .GetReference("PROFILE");
 
-                    await storage_ref.PutBytes(imageArray);
+                    var R =await storage_ref.PutBytes(imageArray);
                     await CrossCloudFirestore.Current
                         .Instance
                         .Collection("OFFICERS")
@@ -106,11 +106,16 @@ namespace CIT.Dialogs
                         .UpdateAsync("ImageUrl", storage_ref.GetDownloadUrl().ToString());
 
                 }
+                
                 AndHUD.Shared.ShowSuccess(context, "Account successfully created", MaskType.Clear, TimeSpan.FromSeconds(2));
             }
             catch (Exception ex)
             {
                 AndHUD.Shared.ShowError(context, ex.Message, MaskType.Clear, TimeSpan.FromSeconds(2));
+            }
+            finally
+            {
+                loadingDialog.Dismiss();
             }
            
         }

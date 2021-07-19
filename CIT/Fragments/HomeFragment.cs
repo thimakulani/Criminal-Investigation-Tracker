@@ -44,7 +44,7 @@ namespace CIT.Fragments
             CrossCloudFirestore
                 .Current
                 .Instance
-                .Collection("CASE")
+                .Collection("CASES")
                 .AddSnapshotListener((value, error) =>
                 {
                     if (!value.IsEmpty)

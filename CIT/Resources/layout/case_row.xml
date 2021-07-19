@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/relative_parent_row"
     >
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -38,5 +38,9 @@
                 android:layout_weight="33"
                 />
         </LinearLayout>
-    </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
 </RelativeLayout>
