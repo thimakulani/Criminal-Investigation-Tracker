@@ -125,7 +125,6 @@ namespace CIT.Dialogs
             ChosePicture();
         }
         private byte[] imageArray;
-        StorageReference storageRef;
         private async void ChosePicture()
         {
             await CrossMedia.Current.Initialize();

@@ -31,7 +31,7 @@ namespace CIT.Fragments
             return view;
         }
         private ExtendedFloatingActionButton fab_add_officer;
-        private List<OfficerModel> Items = new List<OfficerModel>();
+        private readonly List<OfficerModel> Items = new List<OfficerModel>();
         private void ConnectViews(View view)
         {
             RecyclerView recycler = view.FindViewById<RecyclerView>(Resource.Id.recycler_officers);

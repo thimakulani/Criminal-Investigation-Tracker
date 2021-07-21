@@ -76,6 +76,7 @@
     <Compile Include="Dialogs\AddEvidenceDlgFragment.cs" />
     <Compile Include="Dialogs\AddOfficerDlgFragment.cs" />
     <Compile Include="Dialogs\AddSuspectDlgFragment.cs" />
+    <Compile Include="Dialogs\ViewCaseDlgFragment.cs" />
     <Compile Include="FirebaseHelper\FirebaseAdminSDK.cs" />
     <Compile Include="Fragments\CaseHistoryFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
@@ -1117,6 +1118,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\add_suspect_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\view_full_case_fragemnt.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

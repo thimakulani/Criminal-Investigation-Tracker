@@ -14,7 +14,7 @@ namespace CIT.Adapters
         public event EventHandler<HistoryAdapterClickEventArgs> BtnActionClick;
         public event EventHandler<HistoryAdapterClickEventArgs> ItemClick;
         public event EventHandler<HistoryAdapterClickEventArgs> ItemLongClick;
-        private List<Case> items = new List<Case>();
+        private readonly List<Case> items = new List<Case>();
 
         public HistoryAdapter(List<Case> data)
         {

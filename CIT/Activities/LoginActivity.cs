@@ -39,8 +39,13 @@ namespace CIT.Activities
             TxtForgotPassword = FindViewById<TextView>(Resource.Id.TxtForgotPassword);
             InputEmail = FindViewById<TextInputEditText>(Resource.Id.LoginInputEmail);
             InputPassword = FindViewById<TextInputEditText>(Resource.Id.LoginInputPassword);
-
+            TxtForgotPassword.Click += TxtForgotPassword_Click;
             BtnLogin.Click += BtnLogin_Click;
+        }
+
+        private void TxtForgotPassword_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
