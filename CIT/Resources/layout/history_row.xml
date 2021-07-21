@@ -13,119 +13,65 @@
         android:layout_height="wrap_content"
         android:id="@+id/relativeLayout1"
      >
-
-
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout1" 
+            android:id="@+id/linearLayout1"
             android:weightSum="100"
             android:padding="5dp"
-            android:layout_toRightOf="@+id/ImgUserProfile"
+            android:layout_toStartOf="@+id/btn_history_action"
+            tools:ignore="MissingDimension"
         >
-            <TextView
-                android:text="Name"
+            <com.google.android.material.textview.MaterialTextView
+                android:text="@string/app_name"
                 android:layout_width="match_parent"
                 android:textColor="#2f5b99"
                 android:layout_height="wrap_content"
-                android:id="@+id/rowName" 
+                android:id="@+id/row_histry_case_name"
+                android:layout_margin="3dp"
+                android:layout_weight="20"
+             
+            />
+            <com.google.android.material.textview.MaterialTextView
+                android:text="@string/app_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/row_histry_dates_created"
+                android:textColor="#2f5b99"
+                android:layout_margin="3dp"
+                android:layout_weight="20"
+             
+            />
+            <com.google.android.material.textview.MaterialTextView
+                android:text="@string/app_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/row_histry_officer_names"
+                android:textColor="#2f5b99"
                 android:layout_margin="3dp"
                 android:layout_weight="20"
              
             />
             
-            <TextView
-                android:text="I.D"
+            <com.google.android.material.textview.MaterialTextView
+                android:text="@string/app_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rowID" 
-                android:textColor="#2f5b99"
-                android:layout_margin="3dp"
-                android:layout_weight="20"
-             
-            />
-            <TextView
-                android:text="Email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rowEmailAddress" 
-                android:textColor="#2f5b99"
-                android:layout_margin="3dp"
-                android:layout_weight="20"
-             
-            />
-            <TextView
-                android:text="Phone no"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rowPhoneNr" 
+                android:id="@+id/row_histry_status"
                 android:layout_weight="20"
                 android:textColor="#2f5b99"
                 android:layout_margin="3dp"
             />
-            <TextView
-                android:text="Last login"
-                android:textColor="#2f5b99"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rowLastLogin" 
-                android:layout_margin="3dp"
-                android:layout_weight="20"
-            />
-         </LinearLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:padding="5dp"
+        <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/relativeLayout2"
-            android:layout_toRightOf="@+id/ImgUserProfile"
-            android:layout_below="@+id/linearLayout1"
-        >
-            <ImageView
-                android:src="@mipmap/ic_account_circle_black_18dp"
-                android:layout_width="28.5dp"
-                android:layout_height="32.0dp"
-                android:layout_margin="1dp"
-                android:layout_centerVertical="true"
-                android:id="@+id/ImgUserProfile"
-            />
-            <TextView
-                android:text="Enable"
-                android:background="@drawable/abc_ic_search_api_material"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:padding="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/ImgUserProfile"
-                android:id="@+id/txtEnableDisableUser" />
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fabSize="mini"
-                android:src="@android:drawable/ic_menu_call"
-                android:id="@+id/FabCall"
-                android:layout_margin="3dp"
-                android:layout_alignParentRight="true"
-            />
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fabSize="mini"
-                android:src="@android:drawable/ic_dialog_email"
-                android:id="@+id/FabEmail"
-                android:layout_margin="3dp"
-                android:layout_toLeftOf="@+id/FabCall"
-            />
-
-        </RelativeLayout>
+            android:layout_alignParentEnd="true"
+            android:id="@+id/btn_history_action"
+        />
     </RelativeLayout>
 </LinearLayout>

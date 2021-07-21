@@ -1,6 +1,7 @@
 ﻿using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using CIT.Models;
+using Google.Android.Material.Button;
 using Google.Android.Material.TextView;
 using Plugin.CloudFirestore;
 using System;
@@ -12,6 +13,7 @@ namespace CIT.Adapters
     {
         public event EventHandler<CaseAdapterClickEventArgs> ItemClick;
         public event EventHandler<CaseAdapterClickEventArgs> ItemLongClick;
+        public event EventHandler<CaseAdapterClickEventArgs> BtnActionClick;
         private List<Case> items = new List<Case>();
 
         public CaseAdapter(List<Case> data)
@@ -29,7 +31,7 @@ namespace CIT.Adapters
             itemView = LayoutInflater.From(parent.Context).
                    Inflate(id, parent, false);
 
-            var vh = new CaseAdapterViewHolder(itemView, OnClick, OnLongClick);
+            var vh = new CaseAdapterViewHolder(itemView, OnClick, OnLongClick, OnBtnActionClick);
             return vh;
         }
 
@@ -63,6 +65,7 @@ namespace CIT.Adapters
 
         public override int ItemCount => items.Count;
 
+        void OnBtnActionClick(CaseAdapterClickEventArgs args) => BtnActionClick?.Invoke(this, args);
         void OnClick(CaseAdapterClickEventArgs args) => ItemClick?.Invoke(this, args);
         void OnLongClick(CaseAdapterClickEventArgs args) => ItemLongClick?.Invoke(this, args);
 
@@ -73,15 +76,19 @@ namespace CIT.Adapters
        public MaterialTextView row_case_name { get; set; }
        public MaterialTextView row_officer_names { get; set; }
        public MaterialTextView row_case_status { get; set; }
+       public MaterialTextView btn_row_case_action { get; set; }
 
 
         public CaseAdapterViewHolder(View itemView, Action<CaseAdapterClickEventArgs> clickListener,
-                            Action<CaseAdapterClickEventArgs> longClickListener) : base(itemView)
+                            Action<CaseAdapterClickEventArgs> longClickListener, Action<CaseAdapterClickEventArgs> btnActionClickListener) : base(itemView)
         {
             //TextView = v;
             row_case_status = itemView.FindViewById<MaterialTextView>(Resource.Id.row_case_status);
             row_officer_names = itemView.FindViewById<MaterialTextView>(Resource.Id.row_officer_names);
             row_case_name = itemView.FindViewById<MaterialTextView>(Resource.Id.row_case_name);
+            btn_row_case_action = itemView.FindViewById<MaterialTextView>(Resource.Id.btn_row_case_action);
+
+            btn_row_case_action.Click += (sender, e) => btnActionClickListener(new CaseAdapterClickEventArgs { View = itemView, Position = AbsoluteAdapterPosition });
             itemView.Click += (sender, e) => clickListener(new CaseAdapterClickEventArgs { View = itemView, Position = AbsoluteAdapterPosition });
             itemView.LongClick += (sender, e) => longClickListener(new CaseAdapterClickEventArgs { View = itemView, Position = AbsoluteAdapterPosition });
         }

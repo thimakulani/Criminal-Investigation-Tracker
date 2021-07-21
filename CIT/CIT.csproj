@@ -69,6 +69,7 @@
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
     <Compile Include="Adapters\CaseAdapter.cs" />
+    <Compile Include="Adapters\HistoryAdapter.cs" />
     <Compile Include="Adapters\OfficersAdapter.cs" />
     <Compile Include="Controllers\CreateOfficerController.cs" />
     <Compile Include="Dialogs\AddCaseDlgFragment.cs" />
@@ -1103,6 +1104,19 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\history_row.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\txt_action_text_view.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\add_evidence_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\add_suspect_fragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

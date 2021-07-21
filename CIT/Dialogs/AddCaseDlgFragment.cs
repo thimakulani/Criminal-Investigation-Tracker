@@ -10,6 +10,7 @@ using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.TextField;
 using Google.Android.Material.TextView;
+using ID.IonBit.IonAlertLib;
 using Plugin.CloudFirestore;
 using System;
 using System.Collections.Generic;
@@ -63,9 +64,13 @@ namespace CIT.Dialogs
 
 
         }
-
+        private IonAlert loadingDialog;
         private async void Btn_add_case_Click(object sender, EventArgs e)
         {
+            loadingDialog = new IonAlert(context, IonAlert.ProgressType);
+            loadingDialog.SetSpinKit("DoubleBounce")
+                .ShowCancelButton(false)
+                .Show();
             Dictionary<string, object> keyValues = new Dictionary<string, object>
             {
                 { "CaseName", input_case_name.Text },
@@ -82,6 +87,8 @@ namespace CIT.Dialogs
                 .Instance
                 .Collection("CASES")
                 .AddAsync(keyValues);
+            loadingDialog.Dismiss();
+            this.Dismiss();
 
         }
 
@@ -98,6 +105,7 @@ namespace CIT.Dialogs
             foreach (var item in query.Documents)
             {
                 var obj = item.ToObject<OfficerModel>();
+               
                 users.Add(obj);
                 names.Add($"{obj.Name} {obj.Surname}");
             }
@@ -115,7 +123,7 @@ namespace CIT.Dialogs
             builder.SetTitle("SELECT OFFICER");
             builder.SetSingleChoiceItems(names.ToArray(), -1, (dlg, which) =>
             {
-                officer_id = $"{users[which.Which].Name} {users[which.Which].Surname}";
+                officer_id = users[which.Which].Id;//$"{users[which.Which].Name} {users[which.Which].Surname}";
                 officer = users[which.Which];
             });
             builder.SetCancelable(false);

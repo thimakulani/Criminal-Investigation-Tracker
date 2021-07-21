@@ -42,6 +42,7 @@ namespace CIT.Activities
                 nav_bar.SetOnItemSelectedListener(this);
                 
                 nav_bar.SetItemSelected(Resource.Id.nav_home);
+                
             }
 
             //var results = await CrossCloudFirestore

@@ -30,6 +30,7 @@
     <string name="txt_password">PASSWORD</string>
     <string name="txt_login">LOGIN</string>
     <string name="txt_forgot_password">FORGOT PASSWORD?</string>
+    <string name="txt_action">VIEW</string>
     
     
 
