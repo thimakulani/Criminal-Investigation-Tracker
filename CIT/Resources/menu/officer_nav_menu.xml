@@ -1,12 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--For all properties see: https://aka.ms/android-menu-resource-->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-  
-  <item android:id="@+id/action_search"
-         android:showAsAction="always"
-        android:text="Search"
-         android:actionViewClass="android.widget.SearchView"/>
-  
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <item
+      android:id="@+id/officer_nav_home"
+      android:icon="@drawable/ic_dashboard_black_18dp"
+      android:title="CASES"
+      app:cnb_iconColor="#0096fa"/>
+  <item
+      android:id="@+id/officer_nav_predict_results"
+      android:icon="@drawable/ic_assignment_black_18dp"
+      android:title="PREDICT RESULTS"
+      app:cnb_iconColor="#0096fa" />
+  <item
+      android:id="@+id/officer_nav_case_history"
+      android:icon="@drawable/ic_history_black_18dp"
+      android:title="CASE HISTORY"
+      app:cnb_iconColor="#0096fa" />
+  <item
+        android:id="@+id/officer_nav_profile"
+        android:icon="@drawable/ic_account_circle_black_18dp"
+        android:title="PROFILE"
+        app:cnb_iconColor="#0096fa"/>
+  <item
+      android:id="@+id/nav_logout"
+      android:icon="@drawable/ic_exit_to_app_black_18dp"
+      android:title="LOGOUT"
+      app:cnb_iconColor="#0096fa" />
+
 </menu>
 
 <!-- Code to implement into Activity:

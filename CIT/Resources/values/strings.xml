@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CIT</string>
     <string name="txt_add_case">ADD CASE</string>
+    <string name="txt_update_case">UPDATE CASE</string>
     <string name="txt_add_officer">ADD OFFICER</string>
     <string name="txt_create_account">CREATE ACCOUNT</string>
     <string name="txt_assign">ASSIGN OFFICER</string>
@@ -9,8 +10,10 @@
 
     <string name="txt_case_name">CASE NAME</string>
     <string name="txt_select_officer">ASSIGN OFFICER</string>
+    <string name="txt_case_dates_created">DATES CREATED</string>
+    <string name="txt_case_status">CASE STATUS</string>
     <string name="txt_case_note">CASE NOTE</string>
-    <string name="txt_case_evidance">EVIDANCE</string>
+    <string name="txt_case_evidance">-EVIDANCE-</string>
 
 
     <string name="txt_officer_name">OFFICER NAME</string>
@@ -24,6 +27,7 @@
     <string name="txt_suspect_phone_number">SUSPECT PHONE</string>
     <string name="txt_suspect_relation">RELATION</string>
     <string name="txt_suspect_note">NOTE</string>
+    <string name="txt_add_suspect">ADD SUSPECT</string>
     
     
     <string name="txt_email">EMAIL ADDRESS</string>
@@ -31,6 +35,7 @@
     <string name="txt_login">LOGIN</string>
     <string name="txt_forgot_password">FORGOT PASSWORD?</string>
     <string name="txt_action">VIEW</string>
+    <string name="txt_delete">DELETE</string>
     
     
 

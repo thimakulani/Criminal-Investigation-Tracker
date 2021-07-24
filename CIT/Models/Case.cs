@@ -1,15 +1,5 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Firebase.Firestore;
+﻿using Plugin.CloudFirestore;
 using Plugin.CloudFirestore.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CIT.Models
 {
@@ -23,6 +13,9 @@ namespace CIT.Models
         public string Note { get; set; } 
         public string Evidance { get; set; }
         public string Status { get; set; }
-        public string DateCreated { get; internal set; }
+        [ServerTimestamp]
+        public Timestamp DateCreated { get; set; }
+        [ServerTimestamp]
+        public Timestamp LastUpdate { get; set; }
     }
 }

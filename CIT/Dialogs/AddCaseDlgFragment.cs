@@ -6,6 +6,7 @@ using AndroidX.AppCompat.Widget;
 using AndroidX.Fragment.App;
 using CIT.Models;
 using FFImageLoading;
+using FirebaseAdmin.Messaging;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.TextField;
@@ -78,8 +79,9 @@ namespace CIT.Dialogs
                 { "Note", input_case_note.Text },
                 { "Evidence", null },
                 { "Suspect", null },
-                { "Status", "P" },
-                { "TimeStamp", FieldValue.ServerTimestamp }
+                { "Status", "PROGRESS" },
+                { "DateCreated", FieldValue.ServerTimestamp },
+                { "LastUpdate", FieldValue.ServerTimestamp }
             };
 
             await CrossCloudFirestore
@@ -87,6 +89,24 @@ namespace CIT.Dialogs
                 .Instance
                 .Collection("CASES")
                 .AddAsync(keyValues);
+            if(officer_id != null)
+            {
+                var stream = Resources.Assets.Open("service_account.json");
+                var fcm = FirebaseHelper.FirebaseAdminSDK.GetFirebaseMessaging(stream);
+                FirebaseAdmin.Messaging.Message message = new FirebaseAdmin.Messaging.Message()
+                {
+                    Topic = officer_id,
+                    Notification = new Notification()
+                    {
+                        Title = "New Case Added",
+                        Body = $"You have been assigned to a Case {input_case_name.Text}",
+                        
+                    },
+                };
+                await fcm.SendAsync(message);
+            
+            }
+            
             loadingDialog.Dismiss();
             this.Dismiss();
 

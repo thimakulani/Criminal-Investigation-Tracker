@@ -46,6 +46,8 @@ namespace CIT.Fragments
                 .Current
                 .Instance
                 .Collection("CASES")
+                .OrderBy("DateCreated", true)
+                .WhereEqualsTo("Status", "PROGRESS")
                 .AddSnapshotListener((value, error) =>
                 {
                     if (!value.IsEmpty)

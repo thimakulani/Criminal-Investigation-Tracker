@@ -19,12 +19,12 @@
         app:cnb_iconColor="#0096fa" />
     <item
         android:id="@+id/nav_case_history"
-        android:icon="@drawable/iconfinder_216240_home_icon_512px"
+        android:icon="@drawable/ic_history_black_18dp"
         android:title="CASE HISTORY"
         app:cnb_iconColor="#0096fa" />
     <item
         android:id="@+id/nav_logout"
-        android:icon="@drawable/iconfinder_216240_home_icon_512px"
+        android:icon="@drawable/ic_exit_to_app_black_18dp"
         android:title="LOGOUT"
         app:cnb_iconColor="#0096fa" />
   

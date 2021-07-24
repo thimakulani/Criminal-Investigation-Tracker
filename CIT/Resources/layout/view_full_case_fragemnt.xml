@@ -12,8 +12,12 @@
     >
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:navigationIconTint="@color/color_white"
+            android:id="@+id/view_toolbar"
+            />
     </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +32,51 @@
         />
 
     </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_margin="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/view_input_case_note"
+            android:hint="@string/txt_case_note"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_margin="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/view_input_case_status"
+            android:hint="@string/txt_case_status"
+            android:inputType="date"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_margin="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/view_input_case_dates_created"
+            android:hint="@string/txt_case_dates_created"
+            android:inputType="date"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,10 +88,11 @@
         style="@style/Widget.MaterialComponents.Button.Icon"
         app:icon="@drawable/ic_account_circle_black_18dp"
     />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/include_officer"
+        android:id="@+id/view_include_officer"
     >
         <include
             android:layout_width="match_parent"
@@ -50,20 +100,7 @@
             layout="@layout/officer_profile"
          />
     </LinearLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_margin="10dp"
-        >
-        <com.google.android.material.textfield.TextInputEditText
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:id="@+id/view_input_case_note"
-            android:hint="@string/txt_case_note"
-        />
-
-    </com.google.android.material.textfield.TextInputLayout>
+    
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,6 +108,6 @@
         android:id="@+id/view_btn_update_case"
         android:layout_centerVertical="true"
         android:layout_margin="10dp"
-        android:text="@string/txt_add_case"
+        android:text="@string/txt_update_case"
     />
 </LinearLayout>

@@ -43,7 +43,7 @@ namespace CIT.Adapters
             // Replace the contents of the view with that element
             var holder = viewHolder as HistoryAdapterViewHolder;
             holder.TxtCaseName.Text = items[position].CaseName;
-            holder.TxtDateCreated.Text = items[position].DateCreated;
+            holder.TxtDateCreated.Text = $"{items[position].DateCreated.ToDateTime():dd-MM-yyyy, HH:mm tt}";
             holder.TxtStatus.Text = items[position].Status;
             if(items[position].OfficerId != null)
             {
