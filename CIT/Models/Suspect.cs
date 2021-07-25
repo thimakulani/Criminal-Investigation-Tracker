@@ -21,6 +21,8 @@ namespace CIT.Models
         public string PhoneNumber { get; set; }
         public string Relation { get; set; }
         public string Note { get; set; }
+        public int PScore { get; set; }
+        public int LScore { get; set; }
         public string EvidenceType { get; set; }
 
     }

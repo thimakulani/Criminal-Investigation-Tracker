@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidHUD;
 using AndroidX.AppCompat.Widget;
 using AndroidX.Fragment.App;
 using AndroidX.RecyclerView.Widget;
@@ -27,6 +28,7 @@ namespace CIT.Dialogs
         public OfficerViewCaseDlgFragment(string case_id)
         {
             this.case_id = case_id;
+            
         }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -97,6 +99,7 @@ namespace CIT.Dialogs
                         input_case_status.Text = data.Status;
                     }
                 });
+            
 
             CrossCloudFirestore.Current
                 .Instance
@@ -134,7 +137,16 @@ namespace CIT.Dialogs
 
         private void Adapter_DeleteItemClick(object sender, SuspectsAdapterClickEventArgs e)
         {
-            IonAlert ionAlert = new IonAlert(context);
+            IonAlert alert = new IonAlert(context, IonAlert.SuccessType);
+            alert.SetTitleText("Confirm");
+            alert.SetMessage($"Are you sure you want to delete suspect: {items[e.Position].Name} {items[e.Position].Surname}");
+            alert.SetConfirmText("YES");
+            alert.SetConfirmClickListener(new ConfirmDelete(case_id, items[e.Position], context));
+            alert.SetCancelClickListener(new CancelDlg());
+            alert.SetCancelText("NO");
+            alert.Show();
+
+
         }
 
         private void Adapter_BtnViewItemClick(object sender, SuspectsAdapterClickEventArgs e)
@@ -150,6 +162,47 @@ namespace CIT.Dialogs
         private void View_toolbar_NavigationClick(object sender, AndroidX.AppCompat.Widget.Toolbar.NavigationClickEventArgs e)
         {
             Dismiss();
+        }
+
+        private class CancelDlg : Java.Lang.Object, IonAlert.IClickListener
+        {
+            public void OnClick(IonAlert ionAlert)
+            {
+                ionAlert.DismissWithAnimation();
+            }
+        }
+
+        private class ConfirmDelete : Java.Lang.Object, IonAlert.IClickListener
+        {
+            private string case_id;
+            private Suspect suspect;
+            private Context context;
+            public ConfirmDelete(string case_id, Suspect suspect, Context context)
+            {
+                this.case_id = case_id;
+                this.suspect = suspect;
+                this.context = context;
+            }
+
+            public void OnClick(IonAlert ionAlert)
+            {
+                ionAlert.Dismiss();
+                IonAlert loadingDialog = new IonAlert(context, IonAlert.ProgressType);
+                loadingDialog.SetSpinKit("DoubleBounce")
+                    .ShowCancelButton(false)
+                    .Show();
+                CrossCloudFirestore
+                    .Current
+                    .Instance
+                    .Collection("CASES")
+                    .Document(case_id)
+                    .Collection("Suspect")
+                    .Document(suspect.Id)
+                    .DeleteAsync();
+                loadingDialog.Dismiss();    
+                AndHUD.Shared.ShowSuccess(context, "You have successfully deleted suspect record", MaskType.Clear, TimeSpan.FromSeconds(2));
+
+            }
         }
     }
 }

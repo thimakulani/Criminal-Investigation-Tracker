@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/BtnLogin"
             android:textAllCaps="false"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            style="@style/Widget.MaterialComponents.Button"
             app:strokeColor="@color/colorAccent"
             app:strokeWidth="2dp"
             android:text="@string/txt_login"

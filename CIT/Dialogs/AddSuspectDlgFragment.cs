@@ -24,6 +24,7 @@ namespace CIT.Dialogs
         private TextInputEditText input_phone_number;
         private TextInputEditText input_relation;
         private TextInputEditText input_evidance_note;
+        private TextInputEditText suspect_input_score;
         private MaterialButton btn_evidence;
         private MaterialButton btn_add_suspect;
         private Context context;
@@ -51,6 +52,7 @@ namespace CIT.Dialogs
             input_phone_number = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_mobile);
             input_evidance_note = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_evidence);
             input_relation = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_relation);
+            suspect_input_score = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_score);
 
 
             btn_evidence = view.FindViewById<MaterialButton>(Resource.Id.btn_evidence_type);
@@ -86,7 +88,9 @@ namespace CIT.Dialogs
                     { "PhoneNumber", input_phone_number.Text },
                     { "Relation", input_relation.Text },
                     { "Notice", input_evidance_note.Text },
-                    { "EvidenceType", btn_evidence.Text }
+                    { "EvidenceType", btn_evidence.Text },
+                    { "PScore", 0 },
+                    { "LScore", 0 }
                 };
                 // data.Add("", "");
                 await CrossCloudFirestore.Current

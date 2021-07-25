@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Firebase.Auth;
+using Plugin.CloudFirestore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,13 @@ namespace CIT.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            if(savedInstanceState == null)
+            {
+                CrossCloudFirestore.Current.Instance.FirestoreSettings = new FirestoreSettings
+                {
+                    IsPersistenceEnabled = false
+                };
+            }
             // Set our view from the "main" layout resource
             Task startWork = new Task(() =>
             {
