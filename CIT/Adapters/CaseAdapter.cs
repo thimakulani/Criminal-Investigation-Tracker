@@ -60,6 +60,10 @@ namespace CIT.Adapters
                         }
                     });
             }
+            else
+            {
+                holder.Row_officer_names.Text = "NOT ASSIGNED";
+            }
             
         }
 

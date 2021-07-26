@@ -24,6 +24,7 @@ namespace CIT.Models
         public int PScore { get; set; }
         public int LScore { get; set; }
         public string EvidenceType { get; set; }
+        public string PrimeSuspect { get; set; }
 
     }
 }

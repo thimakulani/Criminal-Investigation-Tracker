@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidHUD;
 using AndroidX.AppCompat.Widget;
 using AndroidX.Fragment.App;
 using CIT.Models;
@@ -68,6 +69,19 @@ namespace CIT.Dialogs
         private IonAlert loadingDialog;
         private async void Btn_add_case_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(input_case_name.Text))
+            {
+                input_case_name.Error = "cannot be empty";
+                return;
+            }
+            if (string.IsNullOrEmpty(input_case_note.Text))
+            {
+                input_case_note.Error = "cannot be empty";
+                return;
+            }
+           
+
+
             loadingDialog = new IonAlert(context, IonAlert.ProgressType);
             loadingDialog.SetSpinKit("DoubleBounce")
                 .ShowCancelButton(false)
@@ -89,7 +103,8 @@ namespace CIT.Dialogs
                 .Instance
                 .Collection("CASES")
                 .AddAsync(keyValues);
-            if(officer_id != null)
+            AndHUD.Shared.ShowSuccess(context, "You have successfully added a case record", MaskType.Clear, TimeSpan.FromSeconds(2));
+            if (officer_id != null)
             {
                 var stream = Resources.Assets.Open("service_account.json");
                 var fcm = FirebaseHelper.FirebaseAdminSDK.GetFirebaseMessaging(stream);
@@ -118,7 +133,7 @@ namespace CIT.Dialogs
                 .Current
                 .Instance
                 .Collection("OFFICERS")
-                .GetAsync(Source.Server);
+                .GetAsync();
             List<OfficerModel> users = new List<OfficerModel>();
             List<string> names = new List<string>();
 

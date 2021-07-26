@@ -1,6 +1,7 @@
 ﻿using Android.Content;
 using Android.OS;
 using Android.Views;
+using AndroidHUD;
 using AndroidX.AppCompat.Widget;
 using AndroidX.Fragment.App;
 using Google.Android.Material.Button;
@@ -24,7 +25,6 @@ namespace CIT.Dialogs
         private TextInputEditText input_phone_number;
         private TextInputEditText input_relation;
         private TextInputEditText input_evidance_note;
-        private TextInputEditText suspect_input_score;
         private MaterialButton btn_evidence;
         private MaterialButton btn_add_suspect;
         private Context context;
@@ -52,7 +52,6 @@ namespace CIT.Dialogs
             input_phone_number = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_mobile);
             input_evidance_note = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_evidence);
             input_relation = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_relation);
-            suspect_input_score = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_score);
 
 
             btn_evidence = view.FindViewById<MaterialButton>(Resource.Id.btn_evidence_type);
@@ -79,6 +78,37 @@ namespace CIT.Dialogs
 
         private async void Btn_add_suspect_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(input_name.Text))
+            {
+                input_name.Error = "cannot be empty";
+                return;
+            }
+            if (string.IsNullOrEmpty(input_surname.Text))
+            {
+                input_surname.Error = "cannot be empty";
+                return;
+            }
+            if (string.IsNullOrEmpty(input_phone_number.Text))
+            {
+                input_phone_number.Error = "cannot be empty";
+                return;
+            }
+            if (string.IsNullOrEmpty(input_relation.Text))
+            {
+                input_relation.Error = "cannot be empty";
+                return;
+            }
+
+            if (string.IsNullOrEmpty(input_evidance_note.Text))
+            {
+                input_evidance_note.Error = "cannot be empty";
+                return;
+            }
+            if (btn_evidence.Text == "-EVIDANCE-")
+            {
+                btn_evidence.Error = "select evidence";
+                return;
+            }
             try
             {
                 Dictionary<string, object> data = new Dictionary<string, object>
@@ -90,7 +120,8 @@ namespace CIT.Dialogs
                     { "Notice", input_evidance_note.Text },
                     { "EvidenceType", btn_evidence.Text },
                     { "PScore", 0 },
-                    { "LScore", 0 }
+                    { "LScore", 0 },
+                    { "PrimeSuspect", null },
                 };
                 // data.Add("", "");
                 await CrossCloudFirestore.Current
@@ -99,7 +130,7 @@ namespace CIT.Dialogs
                     .Document(case_id)
                     .Collection("Suspect")
                     .AddAsync(data);
-                
+                AndHUD.Shared.ShowSuccess(context, "You have successfully added suspect record", MaskType.Clear, TimeSpan.FromSeconds(2));
             }
             catch (CloudFirestoreException ex)
             {

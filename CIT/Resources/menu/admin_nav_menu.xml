@@ -13,11 +13,6 @@
         android:title="OFFICERS"
         app:cnb_iconColor="#0096fa"/>
     <item
-        android:id="@+id/nav_predict_results"
-        android:icon="@drawable/ic_assignment_black_18dp"
-        android:title="PREDICT RESULTS"
-        app:cnb_iconColor="#0096fa" />
-    <item
         android:id="@+id/nav_case_history"
         android:icon="@drawable/ic_history_black_18dp"
         android:title="CASE HISTORY"

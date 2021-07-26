@@ -103,9 +103,24 @@
         style="@style/Widget.MaterialComponents.Button.Icon"
         app:icon="@drawable/ic_account_circle_black_18dp"
     />
-    <androidx.recyclerview.widget.RecyclerView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recycler_suspect"
-     />
+        android:layout_height="match_parent"
+    >
+       <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recycler_suspect"
+            android:layout_above="@+id/btn_close_case"
+         />
+
+       <com.google.android.material.button.MaterialButton
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/btn_close_case"
+           android:layout_margin="10dp"
+           android:text="@string/txt_close_case"
+           android:layout_alignParentBottom="true"
+       />
+    </RelativeLayout>
 </LinearLayout>

@@ -79,6 +79,8 @@
     <Compile Include="Dialogs\AddOfficerDlgFragment.cs" />
     <Compile Include="Dialogs\AddSuspectDlgFragment.cs" />
     <Compile Include="Dialogs\OfficerViewCaseDlgFragment.cs" />
+    <Compile Include="Dialogs\PossibleSuspectDlgFragment.cs" />
+    <Compile Include="Dialogs\ResetPasswordDlgFragment.cs" />
     <Compile Include="Dialogs\ViewCaseDlgFragment.cs" />
     <Compile Include="Dialogs\ViewSuspectDlgFragment.cs" />
     <Compile Include="FirebaseHelper\FirebaseAdminSDK.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Fragments\LoginFragment.cs" />
     <Compile Include="Fragments\OfficerHomeFragment.cs" />
     <Compile Include="Fragments\OfficersFragment.cs" />
+    <Compile Include="Fragments\PredictFragment.cs" />
     <Compile Include="Fragments\PredictSuspectFragment.cs" />
     <Compile Include="Fragments\ProfileFragment.cs" />
     <Compile Include="Fragments\SignupFragment.cs" />
@@ -1295,6 +1298,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\view_suspect_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\predict_suspect_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\possible_suspect_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\reset_password.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

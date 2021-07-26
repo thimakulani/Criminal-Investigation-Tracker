@@ -67,7 +67,6 @@ namespace CIT.Dialogs
                 { "Surname", Input_surname.Text.Trim() },
                 { "ImageUrl", null },
                 { "Email", Input_email.Text.Trim() },
-              
                 { "Role", "O" },
                 { "Phone", Input_name.Text.Trim() }
             };

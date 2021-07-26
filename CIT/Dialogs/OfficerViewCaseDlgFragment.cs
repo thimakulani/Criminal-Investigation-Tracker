@@ -50,6 +50,7 @@ namespace CIT.Dialogs
         }
         private MaterialToolbar view_toolbar;
         private MaterialButton btn_add_suspect;
+        private MaterialButton btn_close_case;
   
         private TextInputEditText input_case_name;
         private TextInputEditText input_case_note;
@@ -68,6 +69,7 @@ namespace CIT.Dialogs
             input_case_last_update = view.FindViewById<TextInputEditText>(Resource.Id.o_view_input_case_last_update);
             input_case_status = view.FindViewById<TextInputEditText>(Resource.Id.o_view_input_case_status);
             btn_add_suspect = view.FindViewById<MaterialButton>(Resource.Id.o_view_btn_add_suspect);
+            btn_close_case = view.FindViewById<MaterialButton>(Resource.Id.btn_close_case);
 
             recycler = view.FindViewById<RecyclerView>(Resource.Id.recycler_suspect);
             SuspectsAdapter adapter = new SuspectsAdapter(items);
@@ -82,6 +84,7 @@ namespace CIT.Dialogs
             view_toolbar.SetNavigationIcon(Resource.Drawable.ic_arrow_back_black_18dp);
             btn_add_suspect.Click += Btn_add_suspect_Click;
             view_toolbar.NavigationClick += View_toolbar_NavigationClick;
+            btn_close_case.Click += Btn_close_case_Click;
 
             CrossCloudFirestore.Current
                 .Instance
@@ -127,12 +130,17 @@ namespace CIT.Dialogs
                                     items.RemoveAt(dc.OldIndex);
                                     adapter.NotifyDataSetChanged();
                                     break;
-                                default:
-                                    break;
+                               
                             }
                         }
                     }
                 });
+        }
+
+        private void Btn_close_case_Click(object sender, EventArgs e)
+        {
+            PossibleSuspectDlgFragment dlg = new PossibleSuspectDlgFragment(items, case_id);
+            dlg.Show(ChildFragmentManager.BeginTransaction(), null);
         }
 
         private void Adapter_DeleteItemClick(object sender, SuspectsAdapterClickEventArgs e)
@@ -151,6 +159,8 @@ namespace CIT.Dialogs
 
         private void Adapter_BtnViewItemClick(object sender, SuspectsAdapterClickEventArgs e)
         {
+            ViewSuspectDlgFragment dlg = new ViewSuspectDlgFragment(items[e.Position].Id, case_id);
+            dlg.Show(ChildFragmentManager.BeginTransaction(), null);
         }
 
         private void Btn_add_suspect_Click(object sender, EventArgs e)
@@ -189,7 +199,6 @@ namespace CIT.Dialogs
                 ionAlert.Dismiss();
                 IonAlert loadingDialog = new IonAlert(context, IonAlert.ProgressType);
                 loadingDialog.SetSpinKit("DoubleBounce")
-                    .ShowCancelButton(false)
                     .Show();
                 CrossCloudFirestore
                     .Current
@@ -197,7 +206,7 @@ namespace CIT.Dialogs
                     .Collection("CASES")
                     .Document(case_id)
                     .Collection("Suspect")
-                    .Document()
+                    .Document(suspect.Id)
                     .DeleteAsync();
                 loadingDialog.Dismiss();    
                 AndHUD.Shared.ShowSuccess(context, "You have successfully deleted suspect record", MaskType.Clear, TimeSpan.FromSeconds(2));

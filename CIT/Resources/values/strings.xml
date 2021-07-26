@@ -32,6 +32,7 @@
     <string name="txt_suspect_logical_score">LOGICAL SCORE</string>
     <string name="txt_suspect_physical_score">PHYSICAL SCORE</string>
     <string name="txt_add_suspect">ADD SUSPECT</string>
+    <string name="txt_close_case">CLOSE CASE</string>
     
     
     <string name="txt_email">EMAIL ADDRESS</string>

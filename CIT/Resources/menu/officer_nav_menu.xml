@@ -8,20 +8,10 @@
       android:title="CASES"
       app:cnb_iconColor="#0096fa"/>
   <item
-      android:id="@+id/officer_nav_predict_results"
-      android:icon="@drawable/ic_assignment_black_18dp"
-      android:title="PREDICT RESULTS"
-      app:cnb_iconColor="#0096fa" />
-  <item
       android:id="@+id/officer_nav_case_history"
       android:icon="@drawable/ic_history_black_18dp"
       android:title="CASE HISTORY"
       app:cnb_iconColor="#0096fa" />
-  <item
-        android:id="@+id/officer_nav_profile"
-        android:icon="@drawable/ic_account_circle_black_18dp"
-        android:title="PROFILE"
-        app:cnb_iconColor="#0096fa"/>
   <item
       android:id="@+id/nav_logout"
       android:icon="@drawable/ic_exit_to_app_black_18dp"

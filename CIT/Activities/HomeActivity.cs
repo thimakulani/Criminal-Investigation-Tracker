@@ -8,6 +8,7 @@ using CIT.Fragments;
 using CIT.Models;
 using Firebase.Auth;
 using Firebase.Messaging;
+using Google.Android.Material.AppBar;
 using IsmaelDiVita.ChipNavigationLib;
 using Plugin.CloudFirestore;
 
@@ -17,6 +18,7 @@ namespace CIT.Activities
     public class HomeActivity : AppCompatActivity, ChipNavigationBar.IOnItemSelectedListener
     {
         private ChipNavigationBar nav_bar;
+        private MaterialToolbar toolbar_home;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,10 +34,12 @@ namespace CIT.Activities
 
 
             nav_bar = FindViewById<ChipNavigationBar>(Resource.Id.bottom_nav);
+            toolbar_home = FindViewById<MaterialToolbar>(Resource.Id.toolbar_home);
 
 
             if (FirebaseAuth.Instance.CurrentUser.Email.Contains("admin"))
             {
+                
                 nav_bar.SetMenuResource(Resource.Menu.admin_nav_menu);
                 nav_bar.SetOnItemSelectedListener(this);
                 nav_bar.SetItemSelected(Resource.Id.nav_home);
@@ -59,7 +63,7 @@ namespace CIT.Activities
                     .Current
                     .Instance
                     .Collection("CASES")
-                    .OrderBy("TimeStamp", true)
+                    .OrderBy("DateCreated", true)
                     .WhereEqualsTo("OfficerId", FirebaseAuth.Instance.CurrentUser.Uid)
                     .AddSnapshotListener((value, error) =>
                     {
@@ -72,19 +76,27 @@ namespace CIT.Activities
                             nav_bar.ShowBadge(Resource.Id.officer_nav_home, 0);
                         }
                     });
+                CrossCloudFirestore
+                   .Current
+                   .Instance
+                   .Collection("OFFICERS")
+                   .Document(FirebaseAuth.Instance.CurrentUser.Uid)
+                   .AddSnapshotListener((value, error) =>
+                   {
+                       if (value.Exists)
+                       {
+                           var user = value.ToObject<OfficerModel>();
+                           toolbar_home.Title = $"{user.Name} {user.Surname}";
+                       }
+                   });
             }
 
-            //var results = await CrossCloudFirestore
-            //    .Current
-            //    .Instance
-            //    .Collection("OFFICERS")
-            //    .Document("12345")
-            //    .GetAsync();
+           
 
             //var user = results.ToObject<OfficerModel>();
             //if (user.Role == "A")
             //{
-           
+
             //}
             //else
             //{
@@ -102,7 +114,6 @@ namespace CIT.Activities
                     .Replace(Resource.Id.frag_host, new HomeFragment())
                     .Commit();
                 
-                Toast.MakeText(this, $"{id}", ToastLength.Long).Show();
             }
             if (Resource.Id.nav_add_officer == id)
             {
@@ -111,13 +122,13 @@ namespace CIT.Activities
                     .Replace(Resource.Id.frag_host, new OfficersFragment())
                     .Commit();
             }
-            if (Resource.Id.nav_predict_results == id)
-            {
-                SupportFragmentManager
-                    .BeginTransaction()
-                    .Replace(Resource.Id.frag_host, new PredictSuspectFragment())
-                    .Commit();
-            }
+            //if (Resource.Id.nav_predict_results == id)
+            //{
+            //    SupportFragmentManager
+            //        .BeginTransaction()
+            //        .Replace(Resource.Id.frag_host, new PredictSuspectFragment())
+            //        .Commit();
+            //}
             if (Resource.Id.nav_case_history == id)
             {
                 SupportFragmentManager
@@ -142,20 +153,20 @@ namespace CIT.Activities
                     .Replace(Resource.Id.frag_host, new CaseHistoryFragment())
                     .Commit();
             }
-            if (Resource.Id.officer_nav_predict_results == id)
-            {
-                SupportFragmentManager
-                    .BeginTransaction()
-                    .Replace(Resource.Id.frag_host, new CaseHistoryFragment())
-                    .Commit();
-            }
-            if (Resource.Id.officer_nav_profile == id)
-            {
-                SupportFragmentManager
-                    .BeginTransaction()
-                    .Replace(Resource.Id.frag_host, new CaseHistoryFragment())
-                    .Commit();
-            }
+            //if (Resource.Id.officer_nav_predict_results == id)
+            //{
+            //    SupportFragmentManager
+            //        .BeginTransaction()
+            //        .Replace(Resource.Id.frag_host, new CaseHistoryFragment())
+            //        .Commit();
+            //}
+            //if (Resource.Id.officer_nav_profile == id)
+            //{
+            //    SupportFragmentManager
+            //        .BeginTransaction()
+            //        .Replace(Resource.Id.frag_host, new CaseHistoryFragment())
+            //        .Commit();
+            //}
             if (Resource.Id.nav_logout == id)
             {
                 FirebaseAuth.Instance.SignOut();
