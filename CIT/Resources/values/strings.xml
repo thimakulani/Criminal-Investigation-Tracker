@@ -13,6 +13,7 @@
     <string name="txt_case_dates_created">DATES CREATED</string>
     <string name="txt_case_status">CASE STATUS</string>
     <string name="txt_case_note">CASE NOTE</string>
+    <string name="txt_case_evidance_type">-EVIDANCE TYPE-</string>
     <string name="txt_case_evidance">-EVIDANCE-</string>
 
 
@@ -22,11 +23,14 @@
     <string name="txt_officer_phone">OFFICER PHONE NUMBER</string>
     <string name="txt_officer_img">SELECT IMAGE</string>
 
+    <string name="txt_update_suspect">UPDATE SUSPECT</string>
     <string name="txt_suspect_name">SUSPECT NAME</string>
     <string name="txt_suspect_lastname">SUSPECT LAST NAME</string>
     <string name="txt_suspect_phone_number">SUSPECT PHONE</string>
     <string name="txt_suspect_relation">RELATION</string>
     <string name="txt_suspect_note">NOTE</string>
+    <string name="txt_suspect_logical_score">LOGICAL SCORE</string>
+    <string name="txt_suspect_physical_score">PHYSICAL SCORE</string>
     <string name="txt_add_suspect">ADD SUSPECT</string>
     
     

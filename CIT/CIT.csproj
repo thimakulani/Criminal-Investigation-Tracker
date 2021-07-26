@@ -80,6 +80,7 @@
     <Compile Include="Dialogs\AddSuspectDlgFragment.cs" />
     <Compile Include="Dialogs\OfficerViewCaseDlgFragment.cs" />
     <Compile Include="Dialogs\ViewCaseDlgFragment.cs" />
+    <Compile Include="Dialogs\ViewSuspectDlgFragment.cs" />
     <Compile Include="FirebaseHelper\FirebaseAdminSDK.cs" />
     <Compile Include="Fragments\CaseHistoryFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
@@ -1291,6 +1292,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\txt_delete_text_view.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\view_suspect_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -10708,67 +10708,88 @@ namespace CIT
 			public const int view_btn_update_case = 2131231274;
 			
 			// aapt resource value: 0x7F08022B
-			public const int view_include_officer = 2131231275;
+			public const int view_btn_update_suspect = 2131231275;
 			
 			// aapt resource value: 0x7F08022C
-			public const int view_input_case_dates_created = 2131231276;
+			public const int view_include_officer = 2131231276;
 			
 			// aapt resource value: 0x7F08022D
-			public const int view_input_case_name = 2131231277;
+			public const int view_input_case_dates_created = 2131231277;
 			
 			// aapt resource value: 0x7F08022E
-			public const int view_input_case_note = 2131231278;
+			public const int view_input_case_name = 2131231278;
 			
 			// aapt resource value: 0x7F08022F
-			public const int view_input_case_status = 2131231279;
+			public const int view_input_case_note = 2131231279;
 			
 			// aapt resource value: 0x7F080230
-			public const int view_offset_helper = 2131231280;
+			public const int view_input_case_status = 2131231280;
 			
 			// aapt resource value: 0x7F080231
-			public const int view_toolbar = 2131231281;
+			public const int view_input_suspect_evidence_type = 2131231281;
 			
 			// aapt resource value: 0x7F080232
-			public const int view_tree_lifecycle_owner = 2131231282;
+			public const int view_input_suspect_logical_score = 2131231282;
 			
 			// aapt resource value: 0x7F080233
-			public const int view_tree_saved_state_registry_owner = 2131231283;
+			public const int view_input_suspect_name = 2131231283;
 			
 			// aapt resource value: 0x7F080234
-			public const int view_tree_view_model_store_owner = 2131231284;
+			public const int view_input_suspect_physical_score = 2131231284;
 			
 			// aapt resource value: 0x7F080235
-			public const int visible = 2131231285;
+			public const int view_input_suspect_surname = 2131231285;
 			
 			// aapt resource value: 0x7F080236
-			public const int visible_removing_fragment_view_tag = 2131231286;
+			public const int view_offset_helper = 2131231286;
+			
+			// aapt resource value: 0x7F080237
+			public const int view_suspect_toolbar = 2131231287;
+			
+			// aapt resource value: 0x7F080238
+			public const int view_toolbar = 2131231288;
+			
+			// aapt resource value: 0x7F080239
+			public const int view_tree_lifecycle_owner = 2131231289;
+			
+			// aapt resource value: 0x7F08023A
+			public const int view_tree_saved_state_registry_owner = 2131231290;
+			
+			// aapt resource value: 0x7F08023B
+			public const int view_tree_view_model_store_owner = 2131231291;
+			
+			// aapt resource value: 0x7F08023C
+			public const int visible = 2131231292;
+			
+			// aapt resource value: 0x7F08023D
+			public const int visible_removing_fragment_view_tag = 2131231293;
 			
 			// aapt resource value: 0x7F08001F
 			public const int WanderingCubes = 2131230751;
 			
-			// aapt resource value: 0x7F080237
-			public const int warning_frame = 2131231287;
+			// aapt resource value: 0x7F08023E
+			public const int warning_frame = 2131231294;
 			
 			// aapt resource value: 0x7F080020
 			public const int Wave = 2131230752;
 			
-			// aapt resource value: 0x7F080238
-			public const int wide = 2131231288;
+			// aapt resource value: 0x7F08023F
+			public const int wide = 2131231295;
 			
-			// aapt resource value: 0x7F08023A
-			public const int withinBounds = 2131231290;
+			// aapt resource value: 0x7F080241
+			public const int withinBounds = 2131231297;
 			
-			// aapt resource value: 0x7F080239
-			public const int withText = 2131231289;
+			// aapt resource value: 0x7F080240
+			public const int withText = 2131231296;
 			
-			// aapt resource value: 0x7F08023B
-			public const int wrap = 2131231291;
+			// aapt resource value: 0x7F080242
+			public const int wrap = 2131231298;
 			
-			// aapt resource value: 0x7F08023C
-			public const int wrap_content = 2131231292;
+			// aapt resource value: 0x7F080243
+			public const int wrap_content = 2131231299;
 			
-			// aapt resource value: 0x7F08023D
-			public const int zero_corner_chip = 2131231293;
+			// aapt resource value: 0x7F080244
+			public const int zero_corner_chip = 2131231300;
 			
 			static Id()
 			{
@@ -11382,6 +11403,9 @@ namespace CIT
 			// aapt resource value: 0x7F0B0096
 			public const int view_full_case_fragemnt = 2131427478;
 			
+			// aapt resource value: 0x7F0B0097
+			public const int view_suspect_fragment = 2131427479;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -11987,70 +12011,82 @@ namespace CIT
 			public const int txt_case_evidance = 2131689627;
 			
 			// aapt resource value: 0x7F0F009C
-			public const int txt_case_name = 2131689628;
+			public const int txt_case_evidance_type = 2131689628;
 			
 			// aapt resource value: 0x7F0F009D
-			public const int txt_case_note = 2131689629;
+			public const int txt_case_name = 2131689629;
 			
 			// aapt resource value: 0x7F0F009E
-			public const int txt_case_status = 2131689630;
+			public const int txt_case_note = 2131689630;
 			
 			// aapt resource value: 0x7F0F009F
-			public const int txt_create_account = 2131689631;
+			public const int txt_case_status = 2131689631;
 			
 			// aapt resource value: 0x7F0F00A0
-			public const int txt_delete = 2131689632;
+			public const int txt_create_account = 2131689632;
 			
 			// aapt resource value: 0x7F0F00A1
-			public const int txt_email = 2131689633;
+			public const int txt_delete = 2131689633;
 			
 			// aapt resource value: 0x7F0F00A2
-			public const int txt_forgot_password = 2131689634;
+			public const int txt_email = 2131689634;
 			
 			// aapt resource value: 0x7F0F00A3
-			public const int txt_login = 2131689635;
+			public const int txt_forgot_password = 2131689635;
 			
 			// aapt resource value: 0x7F0F00A4
-			public const int txt_new_case = 2131689636;
+			public const int txt_login = 2131689636;
 			
 			// aapt resource value: 0x7F0F00A5
-			public const int txt_officer_email = 2131689637;
+			public const int txt_new_case = 2131689637;
 			
 			// aapt resource value: 0x7F0F00A6
-			public const int txt_officer_img = 2131689638;
+			public const int txt_officer_email = 2131689638;
 			
 			// aapt resource value: 0x7F0F00A7
-			public const int txt_officer_last_name = 2131689639;
+			public const int txt_officer_img = 2131689639;
 			
 			// aapt resource value: 0x7F0F00A8
-			public const int txt_officer_name = 2131689640;
+			public const int txt_officer_last_name = 2131689640;
 			
 			// aapt resource value: 0x7F0F00A9
-			public const int txt_officer_phone = 2131689641;
+			public const int txt_officer_name = 2131689641;
 			
 			// aapt resource value: 0x7F0F00AA
-			public const int txt_password = 2131689642;
+			public const int txt_officer_phone = 2131689642;
 			
 			// aapt resource value: 0x7F0F00AB
-			public const int txt_select_officer = 2131689643;
+			public const int txt_password = 2131689643;
 			
 			// aapt resource value: 0x7F0F00AC
-			public const int txt_suspect_lastname = 2131689644;
+			public const int txt_select_officer = 2131689644;
 			
 			// aapt resource value: 0x7F0F00AD
-			public const int txt_suspect_name = 2131689645;
+			public const int txt_suspect_lastname = 2131689645;
 			
 			// aapt resource value: 0x7F0F00AE
-			public const int txt_suspect_note = 2131689646;
+			public const int txt_suspect_logical_score = 2131689646;
 			
 			// aapt resource value: 0x7F0F00AF
-			public const int txt_suspect_phone_number = 2131689647;
+			public const int txt_suspect_name = 2131689647;
 			
 			// aapt resource value: 0x7F0F00B0
-			public const int txt_suspect_relation = 2131689648;
+			public const int txt_suspect_note = 2131689648;
 			
 			// aapt resource value: 0x7F0F00B1
-			public const int txt_update_case = 2131689649;
+			public const int txt_suspect_phone_number = 2131689649;
+			
+			// aapt resource value: 0x7F0F00B2
+			public const int txt_suspect_physical_score = 2131689650;
+			
+			// aapt resource value: 0x7F0F00B3
+			public const int txt_suspect_relation = 2131689651;
+			
+			// aapt resource value: 0x7F0F00B4
+			public const int txt_update_case = 2131689652;
+			
+			// aapt resource value: 0x7F0F00B5
+			public const int txt_update_suspect = 2131689653;
 			
 			static String()
 			{

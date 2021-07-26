@@ -197,7 +197,7 @@ namespace CIT.Dialogs
                     .Collection("CASES")
                     .Document(case_id)
                     .Collection("Suspect")
-                    .Document(suspect.Id)
+                    .Document()
                     .DeleteAsync();
                 loadingDialog.Dismiss();    
                 AndHUD.Shared.ShowSuccess(context, "You have successfully deleted suspect record", MaskType.Clear, TimeSpan.FromSeconds(2));
