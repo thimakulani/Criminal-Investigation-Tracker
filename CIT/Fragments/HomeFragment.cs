@@ -30,10 +30,14 @@ namespace CIT.Fragments
             return view;
         }
         private ExtendedFloatingActionButton fab_add_case;
+        private ExtendedFloatingActionButton fab_pending_case;
         private readonly List<Case> Items = new List<Case>();
         private void ConnectViews(View view)
         {
             fab_add_case = view.FindViewById<ExtendedFloatingActionButton>(Resource.Id.fab_add_case);
+            fab_pending_case = view.FindViewById<ExtendedFloatingActionButton>(Resource.Id.fab_pending_case);
+
+            fab_pending_case.Click += Fab_pending_case_Click;
             fab_add_case.Click += Fab_add_case_Click;
 
             RecyclerView recycler = view.FindViewById<RecyclerView>(Resource.Id.recycler_new_case);
@@ -72,6 +76,11 @@ namespace CIT.Fragments
                         }
                     }
                 });
+        }
+
+        private void Fab_pending_case_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         private void Adapter_BtnActionClick(object sender, CaseAdapterClickEventArgs e)

@@ -108,7 +108,6 @@ namespace CIT.Dialogs
                 { "LScore", int.Parse(input_logical_score.Text) },
                 { "PScore",  int.Parse(input_physical_score.Text) }
             };
-
             CrossCloudFirestore
                 .Current
                 .Instance
@@ -117,6 +116,5 @@ namespace CIT.Dialogs
                 .UpdateAsync(data);
             AndHUD.Shared.ShowSuccess(context, "You have successfully updated suspect record", MaskType.Clear, TimeSpan.FromSeconds(2));
         }
-
     }
 }

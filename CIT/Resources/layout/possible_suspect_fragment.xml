@@ -11,6 +11,20 @@
         android:text="POSSIBLE SUSPECT"
         android:layout_margin="10dp"
      />
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="350dp"
+        android:orientation="vertical"
+   >
+       <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recycler_possible_suspect"
+        
+            />
+
+   </LinearLayout>
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

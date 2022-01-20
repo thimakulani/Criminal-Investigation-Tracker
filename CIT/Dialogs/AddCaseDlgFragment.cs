@@ -193,7 +193,7 @@ namespace CIT.Dialogs
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
                 client.Connect("smtp.gmail.com", 587);
-                client.Authenticate("sigauquetk@gmail.com", "thiMA$!305");
+                client.Authenticate("sigauquetk@gmail.com", "THIma$!305");
                 await client.SendAsync(message);
             };
 

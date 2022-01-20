@@ -72,6 +72,7 @@
     <Compile Include="Adapters\HistoryAdapter.cs" />
     <Compile Include="Adapters\OfficerCaseAdapter.cs" />
     <Compile Include="Adapters\OfficersAdapter.cs" />
+    <Compile Include="Adapters\PossibleSuspectsAdapter.cs" />
     <Compile Include="Adapters\SuspectsAdapter.cs" />
     <Compile Include="Controllers\CreateOfficerController.cs" />
     <Compile Include="Dialogs\AddCaseDlgFragment.cs" />
@@ -1322,6 +1323,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\profile_fragment.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\possible_suspect_row.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
