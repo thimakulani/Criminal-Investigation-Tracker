@@ -106,9 +106,8 @@ namespace CIT.Dialogs
 
             CrossCloudFirestore.Current
                 .Instance
-                .Collection("CASES")
-                .Document(case_id)
-                .Collection("Suspect")
+                .Collection("SUSPECTS")
+                .WhereEqualsTo("Case_Id", case_id)
                 .AddSnapshotListener((values, errors) =>
                 {
                     if (!values.IsEmpty)
@@ -147,7 +146,7 @@ namespace CIT.Dialogs
         {
             IonAlert alert = new IonAlert(context, IonAlert.SuccessType);
             alert.SetTitleText("Confirm");
-            alert.SetMessage($"Are you sure you want to delete suspect: {items[e.Position].Name} {items[e.Position].Surname}");
+            alert.SetContentText($"Are you sure you want to delete suspect: {items[e.Position].Name} {items[e.Position].Surname}");
             alert.SetConfirmText("YES");
             alert.SetConfirmClickListener(new ConfirmDelete(case_id, items[e.Position], context));
             alert.SetCancelClickListener(new CancelDlg());
@@ -203,9 +202,7 @@ namespace CIT.Dialogs
                 CrossCloudFirestore
                     .Current
                     .Instance
-                    .Collection("CASES")
-                    .Document(case_id)
-                    .Collection("Suspect")
+                    .Collection("SUSPECTS")
                     .Document(suspect.Id)
                     .DeleteAsync();
                 loadingDialog.Dismiss();    

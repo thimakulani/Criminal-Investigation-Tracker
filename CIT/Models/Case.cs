@@ -17,5 +17,9 @@ namespace CIT.Models
         public Timestamp DateCreated { get; set; }
         [ServerTimestamp]
         public Timestamp LastUpdate { get; set; }
+        public string CaseNo { get; set; }
+        public string VictimNames { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
     }
 }

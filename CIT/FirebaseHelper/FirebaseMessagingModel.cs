@@ -27,7 +27,6 @@ namespace CIT.FirebaseHelper
             }
             base.OnMessageReceived(remoteMessage);
         }
-
         private void SendNotification(RemoteMessage remoteMessage)
         {
             var intent = new Intent(this, typeof(HomeActivity));

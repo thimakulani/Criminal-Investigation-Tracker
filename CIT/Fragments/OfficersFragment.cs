@@ -41,6 +41,7 @@ namespace CIT.Fragments
             OfficersAdapter adapter = new OfficersAdapter(Items);
             recycler.SetLayoutManager(new LinearLayoutManager(view.Context));
             recycler.SetAdapter(adapter);
+            adapter.OfficerClick += Adapter_OfficerClick;
             adapter.NotifyDataSetChanged();
 
 
@@ -72,6 +73,12 @@ namespace CIT.Fragments
                         }
                     }
                 });
+        }
+
+        private void Adapter_OfficerClick(object sender, OfficersAdapterClickEventArgs e)
+        {
+            OfficeProfileDlgFragment officeProfileDlgFragment = new OfficeProfileDlgFragment(Items[e.Position].Id);
+            officeProfileDlgFragment.Show(ChildFragmentManager.BeginTransaction(), "");
         }
 
         private void Fab_add_officer_Click(object sender, EventArgs e)

@@ -48,9 +48,15 @@ namespace CIT.Dialogs
             ResetInputEmail = view.FindViewById<TextInputEditText>(Resource.Id.ResetInputEmail);
             BtnReset = view.FindViewById<MaterialButton>(Resource.Id.BtnReset);
             BtnCloseDialog = view.FindViewById<FloatingActionButton>(Resource.Id.FabCloseResetDialog);
-
+            BtnCloseDialog.Click += BtnCloseDialog_Click;
             BtnReset.Click += BtnReset_Click;
         }
+
+        private void BtnCloseDialog_Click(object sender, EventArgs e)
+        {
+            Dismiss();
+        }
+
         private Context context;
         IonAlert loadingDialog;
         private void BtnReset_Click(object sender, EventArgs e)

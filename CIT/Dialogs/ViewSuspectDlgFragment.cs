@@ -75,9 +75,7 @@ namespace CIT.Dialogs
             CrossCloudFirestore
                 .Current
                 .Instance
-                .Collection("CASES")
-                .Document(case_id)
-                .Collection("Suspect")
+                .Collection("SUSPECTS")
                 .Document(suspect_id).AddSnapshotListener((value, error) =>
                 {
                     if (value.Exists)
@@ -114,9 +112,7 @@ namespace CIT.Dialogs
             CrossCloudFirestore
                 .Current
                 .Instance
-                .Collection("CASES")
-                .Document(case_id)
-                .Collection("Suspect")
+                .Collection("SUSPECTS")
                 .Document(suspect_id)
                 .UpdateAsync(data);
             AndHUD.Shared.ShowSuccess(context, "You have successfully updated suspect record", MaskType.Clear, TimeSpan.FromSeconds(2));

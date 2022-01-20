@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidHUD;
 using AndroidX.AppCompat.App;
+using CIT.Dialogs;
 using Firebase.Auth;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
@@ -45,7 +46,8 @@ namespace CIT.Activities
 
         private void TxtForgotPassword_Click(object sender, EventArgs e)
         {
-            
+            ResetPasswordDlgFragment dlg = new ResetPasswordDlgFragment();
+            dlg.Show(SupportFragmentManager.BeginTransaction(), null);
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)

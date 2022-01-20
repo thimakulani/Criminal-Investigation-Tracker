@@ -7,8 +7,13 @@
     <string name="txt_assign">ASSIGN OFFICER</string>
     <string name="txt_new_case">NEW CASE</string>
 
+	<string name="txt_victime_name">VICTIM NAME</string>
+	<string name="txt_victime_phone">VICTIM PHONE</string>
+	<string name="txt_victime_email">VICTIM EMAIL</string>
 
-    <string name="txt_case_name">CASE NAME</string>
+
+	<string name="txt_case_number">CASE NUMBER</string>
+	<string name="txt_case_name">CASE NAME</string>
     <string name="txt_select_officer">ASSIGN OFFICER</string>
     <string name="txt_case_dates_created">DATES CREATED</string>
     <string name="txt_case_status">CASE STATUS</string>
@@ -32,7 +37,7 @@
     <string name="txt_suspect_logical_score">LOGICAL SCORE</string>
     <string name="txt_suspect_physical_score">PHYSICAL SCORE</string>
     <string name="txt_add_suspect">ADD SUSPECT</string>
-    <string name="txt_close_case">CLOSE CASE</string>
+    <string name="txt_close_case">REQUEST CASE CLOSE</string>
     
     
     <string name="txt_email">EMAIL ADDRESS</string>

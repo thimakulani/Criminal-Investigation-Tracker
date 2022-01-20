@@ -12,6 +12,7 @@ namespace CIT.Adapters
     {
         public event EventHandler<OfficersAdapterClickEventArgs> ItemClick;
         public event EventHandler<OfficersAdapterClickEventArgs> ItemLongClick;
+        public event EventHandler<OfficersAdapterClickEventArgs> OfficerClick;
 
         private readonly List<OfficerModel> items = new List<OfficerModel>();
 
@@ -30,7 +31,7 @@ namespace CIT.Adapters
             itemView = LayoutInflater.From(parent.Context).
                    Inflate(id, parent, false);
 
-            var vh = new OfficersAdapterViewHolder(itemView, OnClick, OnLongClick);
+            var vh = new OfficersAdapterViewHolder(itemView, OnClick, OnLongClick, OnOfficerClick);
             return vh;
         }
 
@@ -45,6 +46,7 @@ namespace CIT.Adapters
 
         public override int ItemCount => items.Count;
 
+        void OnOfficerClick(OfficersAdapterClickEventArgs args) => OfficerClick?.Invoke(this, args);
         void OnClick(OfficersAdapterClickEventArgs args) => ItemClick?.Invoke(this, args);
         void OnLongClick(OfficersAdapterClickEventArgs args) => ItemLongClick?.Invoke(this, args);
 
@@ -53,16 +55,19 @@ namespace CIT.Adapters
     public class OfficersAdapterViewHolder : RecyclerView.ViewHolder
     {
         public MaterialTextView Row_officer_name { get; set; }
+        public MaterialTextView Row_ViewOfficer { get; set; }
         public MaterialTextView Row_officer_surname { get; set; }
 
 
         public OfficersAdapterViewHolder(View itemView, Action<OfficersAdapterClickEventArgs> clickListener,
-                            Action<OfficersAdapterClickEventArgs> longClickListener) : base(itemView)
+                            Action<OfficersAdapterClickEventArgs> longClickListener, Action<OfficersAdapterClickEventArgs> officerClickListener) : base(itemView)
         {
             //TextView = v;
             Row_officer_name = itemView.FindViewById<MaterialTextView>(Resource.Id.row_officer_name);
+            Row_ViewOfficer = itemView.FindViewById<MaterialTextView>(Resource.Id.row_officer_btn_action);
             Row_officer_surname = itemView.FindViewById<MaterialTextView>(Resource.Id.row_officer_surname);
 
+            Row_ViewOfficer.Click += (sender, e) => officerClickListener(new OfficersAdapterClickEventArgs { View = itemView, Position = AbsoluteAdapterPosition });
             itemView.Click += (sender, e) => clickListener(new OfficersAdapterClickEventArgs { View = itemView, Position = AbsoluteAdapterPosition });
             itemView.LongClick += (sender, e) => longClickListener(new OfficersAdapterClickEventArgs { View = itemView, Position = AbsoluteAdapterPosition });
         }

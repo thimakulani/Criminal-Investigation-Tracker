@@ -7,6 +7,7 @@ using AndroidX.Fragment.App;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using Plugin.CloudFirestore;
+using Plugin.Media;
 using System;
 using System.Collections.Generic;
 
@@ -26,6 +27,7 @@ namespace CIT.Dialogs
         private TextInputEditText input_relation;
         private TextInputEditText input_evidance_note;
         private MaterialButton btn_evidence;
+        private MaterialButton btn_attach_file;
         private MaterialButton btn_add_suspect;
         private Context context;
         private readonly string case_id;
@@ -39,7 +41,7 @@ namespace CIT.Dialogs
         {
             // Use this to return your custom view for this Fragment
             base.OnCreateView(inflater, container, savedInstanceState);
-           View view = inflater.Inflate(Resource.Layout.add_suspect_fragment, container, false);
+            View view = inflater.Inflate(Resource.Layout.add_suspect_fragment, container, false);
             context = view.Context;
             ConnectViews(view);
             return view;
@@ -53,15 +55,46 @@ namespace CIT.Dialogs
             input_evidance_note = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_evidence);
             input_relation = view.FindViewById<TextInputEditText>(Resource.Id.suspect_input_relation);
 
-
+            btn_attach_file = view.FindViewById<MaterialButton>(Resource.Id.btn_attach_file);
             btn_evidence = view.FindViewById<MaterialButton>(Resource.Id.btn_evidence_type);
             btn_add_suspect = view.FindViewById<MaterialButton>(Resource.Id.btn_add_suspect);
 
+            btn_attach_file.Visibility = ViewStates.Gone;
+
             btn_add_suspect.Click += Btn_add_suspect_Click;
             btn_evidence.Click += Btn_evidence_Click;
-
+            btn_attach_file.Click += Btn_attach_file_Click;
         }
 
+        private void Btn_attach_file_Click(object sender, EventArgs e)
+        {
+            ChosePicture();
+        }
+        private byte[] imageArray;
+        private async void ChosePicture()
+        {
+            await CrossMedia.Current.Initialize();
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                Android.Widget.Toast.MakeText(context, "Upload not supported on this device", Android.Widget.ToastLength.Short).Show();
+                return;
+            }
+            try
+            {
+                var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+                {
+                    PhotoSize = Plugin.Media.Abstractions.PhotoSize.Full,
+                    CompressionQuality = 40,
+
+                });
+                imageArray = System.IO.File.ReadAllBytes(file.Path);
+
+            }
+            catch (Exception E)
+            {
+                Android.Widget.Toast.MakeText(context, "Upload not supported on this device  " + E.Message, Android.Widget.ToastLength.Short).Show();
+            }
+        }
         private void Btn_evidence_Click(object sender, EventArgs e)
         {
             PopupMenu popup = new PopupMenu(context, btn_evidence);
@@ -70,10 +103,20 @@ namespace CIT.Dialogs
             popup.Show();
             popup.MenuItemClick += Popup_MenuItemClick;
         }
-
+        int type = 0;
         private void Popup_MenuItemClick(object sender, PopupMenu.MenuItemClickEventArgs e)
         {
             btn_evidence.Text = e.Item.TitleFormatted.ToString();
+            if (e.Item.ItemId == 0)
+            {
+                btn_attach_file.Visibility = ViewStates.Gone;
+                type = 0;
+            }
+            if (e.Item.ItemId == 1)
+            {
+                btn_attach_file.Visibility = ViewStates.Visible;
+                type = 1;
+            }
         }
 
         private async void Btn_add_suspect_Click(object sender, EventArgs e)
@@ -109,6 +152,10 @@ namespace CIT.Dialogs
                 btn_evidence.Error = "select evidence";
                 return;
             }
+            if(type == 1 && imageArray == null)
+            {
+                btn_attach_file.Error = "SELECT EVIDANCE";
+            }
             try
             {
                 Dictionary<string, object> data = new Dictionary<string, object>
@@ -119,18 +166,36 @@ namespace CIT.Dialogs
                     { "Relation", input_relation.Text },
                     { "Notice", input_evidance_note.Text },
                     { "EvidenceType", btn_evidence.Text },
+                    { "EvidanceUrl", null },
                     { "PScore", 0 },
                     { "LScore", 0 },
                     { "PrimeSuspect", null },
+                    { "Case_Id", case_id },
                 };
                 // data.Add("", "");
-                await CrossCloudFirestore.Current
+                var query = await CrossCloudFirestore.Current
                     .Instance
-                    .Collection("CASES")
-                    .Document(case_id)
-                    .Collection("Suspect")
+                    .Collection("SUSPECTS")
                     .AddAsync(data);
+
+                if(type == 1)
+                {
+                    var storage_ref = Plugin.FirebaseStorage.CrossFirebaseStorage
+                     .Current
+                     .Instance
+                     .RootReference.Child(query.Id);
+                     
+
+                    await storage_ref.PutBytesAsync(imageArray);
+
+                    var url = await storage_ref.GetDownloadUrlAsync();
+
+                    //    .PutStreamAsync(file.GetStream());
+                    await query
+                        .UpdateAsync("EvidanceUrl", url.ToString());
+                }
                 AndHUD.Shared.ShowSuccess(context, "You have successfully added suspect record", MaskType.Clear, TimeSpan.FromSeconds(2));
+                Dismiss();
             }
             catch (CloudFirestoreException ex)
             {
@@ -143,6 +208,6 @@ namespace CIT.Dialogs
             base.OnStart();
             Dialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
         }
-        
+
     }
 }

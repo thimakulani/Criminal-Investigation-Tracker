@@ -107,6 +107,7 @@ namespace CIT.Dialogs
                 }
                 
                 AndHUD.Shared.ShowSuccess(context, "Account successfully created", MaskType.Clear, TimeSpan.FromSeconds(2));
+                this.Dismiss();
             }
             catch (Exception ex)
             {

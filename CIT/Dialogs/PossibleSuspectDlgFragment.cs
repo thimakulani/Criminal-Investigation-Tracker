@@ -83,6 +83,8 @@ namespace CIT.Dialogs
                 .Collection("CASES")
                 .Document(case_id)
                 .UpdateAsync("Status", "CLOSED");
+            Dismiss();
+            
         }
 
         private void Btn_suspect_Click(object sender, EventArgs e)
@@ -102,6 +104,7 @@ namespace CIT.Dialogs
         {
             suspect_id = items[e.Item.ItemId].Id;
             suspect_name = $"{items[e.Item.ItemId].Name} {items[e.Item.ItemId].Name}";
+            btn_suspect.Text = $"{items[e.Item.ItemId].Name} {items[e.Item.ItemId].Name}";
         }
         public override void OnStart()
         {
