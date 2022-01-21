@@ -31,7 +31,7 @@
         android:layout_margin="10dp"
         android:textColor="@color/color_white"
         android:backgroundTint="@color/colorPrimary"
-        android:text="@string/txt_new_case"
+        android:text="PENDING CLOSE CASES"
         />
 
 </RelativeLayout>

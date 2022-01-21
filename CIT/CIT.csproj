@@ -68,6 +68,7 @@
     <Compile Include="Activities\HomeActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
+    <Compile Include="Adapters\PenddingCaseAdapter.cs" />
     <Compile Include="Adapters\CaseAdapter.cs" />
     <Compile Include="Adapters\HistoryAdapter.cs" />
     <Compile Include="Adapters\OfficerCaseAdapter.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Dialogs\AddSuspectDlgFragment.cs" />
     <Compile Include="Dialogs\OfficeProfileDlgFragment.cs" />
     <Compile Include="Dialogs\OfficerViewCaseDlgFragment.cs" />
+    <Compile Include="Dialogs\PenddingCaseDlgFragment.cs" />
     <Compile Include="Dialogs\PossibleSuspectDlgFragment.cs" />
     <Compile Include="Dialogs\ResetPasswordDlgFragment.cs" />
     <Compile Include="Dialogs\ViewCaseDlgFragment.cs" />
@@ -1326,6 +1328,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\possible_suspect_row.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\pandding_fragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

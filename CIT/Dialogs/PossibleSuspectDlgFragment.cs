@@ -23,7 +23,7 @@ namespace CIT.Dialogs
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            //SetStyle(StyleNoFrame, Resource.Style.FullScreenDialogStyle);
             // Create your fragment here
         }
         private Context context;
@@ -132,8 +132,8 @@ namespace CIT.Dialogs
                     .Current
                     .Instance
                     .Collection("CASES")
-                    .Document(suspect_id)
-                    .UpdateAsync("PrimeSuspect", "1");
+                    .Document(case_id)
+                    .UpdateAsync(data);
                 Dismiss();
             }
             else

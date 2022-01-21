@@ -141,6 +141,7 @@ namespace CIT.Dialogs
                 { "Note", input_case_note.Text },
                 { "Status", "PROGRESS" },
                 { "DateCreated", FieldValue.ServerTimestamp },
+                { "PrimeSuspect", null },
                 { "LastUpdate", FieldValue.ServerTimestamp },
                 { "VictimName", input_victim_name.Text },
                 { "VictimPhone", input_victim_phone.Text },
@@ -177,7 +178,7 @@ namespace CIT.Dialogs
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("CRIME INVESTIGATION TRACK", "sigauquetk@gmail.com"));
             message.To.Add(new MailboxAddress($"{input_victim_name.Text}", $"{input_victim_email.Text.Trim()}"));
-            message.Subject = "REQUESTED PDF";
+            message.Subject = "CASE OPEN";
             string body = generateBody(input_case_number.Text, input_victim_name.Text);
 
 
